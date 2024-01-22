@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>CIBLE</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">CIBLE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="stepbystep">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true" onclick="showContent(1, this)">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Étape 1</h5>
+                            <small>Choix de la zone</small>
+                        </div>
+                        <p class="mb-1">Selection de votre zone travaux. Entourer la zone sur GeoReso après un clic-droit>Selection de la zone puis contourer at télécharger au format csv.</p>
+                        <small></small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="showContent(2, this)">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Étape 2</h5>
+                            <small class="text-body-secondary">Récupération du fichier</small>
+                        </div>
+                        <p class="mb-1">Après avoir enregistrer votre fichier, insérer l'élément dans la zone "Insérer votre fichier" afin de continuer vers les étapes ultérieur.</p>
+                        <small class="text-body-secondary"></small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="showContent(3, this)">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Étape 3</h5>
+                            <small class="text-body-secondary">Selection des cables</small>
+                        </div>
+                        <p class="mb-1">Mettre la partie 3.</p>
+                        <small class="text-body-secondary">je sais pas</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="showContent(4, this)">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Étape 4</h5>
+                            <small class="text-body-secondary">Mes cables</small>
+                        </div>
+                        <p class="mb-1">Mettre la partie 4</p>
+                        <small class="text-body-secondary">je sais pas.</small>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-md-9 main-content" id="content1">
+            <h2>Étape 1 - Choix de la zone</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12131.006894235477!2d2.352223184531368!3d48.85661435014792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e5b70f%3A0x40b82c3688c9460d!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1640919853841!5m2!1sen!2sfr" width="100%" height="800" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+        <div class="col-md-9 main-content" id="content2" style="display: none;">
+             <h2>Étape 2 - Récupération du fichier</h2>
+             <form class="form">
+                <span class="form-title">Insérer votre fichier</span>
+                <p class="form-paragraph">
+                    Uniquement .csv
+                  </p>
+                 <label for="file-input" class="drop-container">
+                <span class="drop-title">Glisser votre fichier</span>
+                or
+                <input type="file" accept=".csv" required="" id="file-input">
+              </label>
+              </form>
+        </div>
+
+        <div class="col-md-9 main-content" id="content3" style="display: none;">
+            <h2>Étape 3 - Selection des cables</h2>
+            <p>Mettre la partie 3</p>
+            <small>je sais pas.</small>
+        </div>
+        <div class="col-md-9 main-content" id="content4" style="display: none;">
+            <h2>Étape 4 - Selection des cables</h2>
+            <p>Mettre la partie 4</p>
+            <small>je sais pas.</small>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function showContent(step, element) {
+        document.getElementById('content1').style.display = 'none';
+        document.getElementById('content2').style.display = 'none';
+        document.getElementById('content3').style.display = 'none';
+        document.getElementById('content4').style.display = 'none';
+        const listItems = document.querySelectorAll('.list-group-item');
+        listItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        document.getElementById('content' + step).style.display = 'block';
+        element.classList.add('active');
+    }
+</script>
+</body>
+</html>
